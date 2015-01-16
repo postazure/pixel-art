@@ -1,6 +1,6 @@
 var paper = document.getElementById("paper");
 var body = document.getElementsByClassName("container")[0];
-var penColor = "red";
+var penColor = "black";
 
 createGrid(16,16);
 createPen();
@@ -21,7 +21,11 @@ function createPixel() {
   var pixel = document.createElement("DIV");
   pixel.setAttribute("class","pixel")
   pixel.onclick = function () {
-    this.style.backgroundColor = penColor;
+    if (this.style.backgroundColor === penColor) {
+      this.style.backgroundColor = "#d3d3d3";
+    }else {
+      this.style.backgroundColor = penColor;
+    };
   };
   paper.appendChild(pixel);
 };
@@ -33,7 +37,7 @@ function createPalette() {
   palette.style.marginTop = "1px";
   body.appendChild(palette);
 
-  createColor("#d3d3d3",palette);
+  createColor("black",palette);
   createColor("white",palette);
   createColor("red",palette);
 
